@@ -1,5 +1,6 @@
 package hellojpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,11 +11,9 @@ public class Member {
 
     @Id
     private Long id;
-    private String name;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(unique = true, length = 10)
+    private String name;
 
     public Member() {
     }
@@ -24,6 +23,9 @@ public class Member {
         this.name = name;
     }
 
+    public Long getId() {
+        return id;
+    }
     public void setId(Long id) {
         this.id = id;
     }
