@@ -11,7 +11,7 @@ public class JpaMain {
         EntityManager em = emf.createEntityManager();
 
         EntityTransaction tx = em.getTransaction();
-        tx.begin();
+        tx.begin(); // 트랜잭션 시작
 
         try {
             //　저장
@@ -61,9 +61,26 @@ public class JpaMain {
             System.out.println("result = " + (findMember1 == findMember2));
              */
 
+            /*
+            // 쓰기 지연 SQL 저장소
+            Member member1 = new Member(150L, "A");
+            Member member2 = new Member(160L, "B");
 
+            em.persist(member1);
+            em.persist(member2);
+            // 여기까지 insert sql을 데이터베이스에 보내지 않는다
+             */
 
-            tx.commit();
+            /*
+            // 변경 감지
+            Member member = em.find(Member.class, 150L);
+            member.setName("ZZZZ");
+             */
+
+            System.out.println("===========================");
+
+            // 커밋하는 순간 insert sql을 보낸다
+            tx.commit(); // 트랜잭션 커밋
         } catch (Exception e) {
             tx.rollback();
         } finally {
