@@ -2,8 +2,10 @@ package hellojpa;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
+@Entity // JPA가 관리하는 객체
+@Table // 엔티티와 매핑할 테이블 지정
 public class Member {
 
     @Id
