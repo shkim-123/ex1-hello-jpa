@@ -77,11 +77,25 @@ public class JpaMain {
             member.setName("ZZZZ");
              */
 
+            /*
             // 플러시 : 영속성 컨텍스트의 변경내용을 데이터베이스에 반영
             Member member = new Member(200L, "member200");
             em.persist(member);
 
             em.flush(); // 직접 호출
+             */
+
+            // 준영속 상태
+            Member member = em.find(Member.class, 150L);
+            member.setName("AAAA");
+
+            // 영속성 컨텍스트에서 분리
+//            em.detach(member);
+
+            // 영속성 컨텍스트 다 지우기
+            em.clear();
+            // 영속성 컨텍스트가 clear되어 다시 db에서 조회
+            Member member2 = em.find(Member.class, 150L);
 
             System.out.println("===========================");
 
