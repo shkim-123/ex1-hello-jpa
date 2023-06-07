@@ -77,6 +77,12 @@ public class JpaMain {
             member.setName("ZZZZ");
              */
 
+            // 플러시 : 영속성 컨텍스트의 변경내용을 데이터베이스에 반영
+            Member member = new Member(200L, "member200");
+            em.persist(member);
+
+            em.flush(); // 직접 호출
+
             System.out.println("===========================");
 
             // 커밋하는 순간 insert sql을 보낸다
