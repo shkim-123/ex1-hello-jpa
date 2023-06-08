@@ -6,10 +6,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity // JPA가 관리하는 객체
-@TableGenerator(
+@SequenceGenerator(
         name = "MEMBER_SEQ_GENERATOR",
-        table = "MY_SEQUENCES",
-        pkColumnValue = "MEMBER_SEQ", allocationSize = 1
+        sequenceName = "MEMBER_SEQ",
+        initialValue = 1, allocationSize = 50
 )
 public class Member {
 
