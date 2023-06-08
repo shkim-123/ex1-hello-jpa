@@ -85,6 +85,7 @@ public class JpaMain {
             em.flush(); // 직접 호출
              */
 
+            /*
             // 준영속 상태
             Member member = em.find(Member.class, 150L);
             member.setName("AAAA");
@@ -96,6 +97,23 @@ public class JpaMain {
             em.clear();
             // 영속성 컨텍스트가 clear되어 다시 db에서 조회
             Member member2 = em.find(Member.class, 150L);
+             */
+
+            Member member = new Member();
+//            member.setId(1L);
+//            member.setUsername("A");
+//            member.setRoleTpye(RoleType.USER);
+
+//            member.setId(2L);
+//            member.setUsername("B");
+//            member.setRoleTpye(RoleType.ADMIN);
+
+            member.setId(3L);
+            member.setUsername("C");
+            member.setRoleType(RoleType.GUEST);
+
+
+            em.persist(member);
 
             System.out.println("===========================");
 
