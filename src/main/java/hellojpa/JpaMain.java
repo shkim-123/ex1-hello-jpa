@@ -99,6 +99,8 @@ public class JpaMain {
             Member member2 = em.find(Member.class, 150L);
              */
 
+            /*
+            // 컬럼 매핑
             Member member = new Member();
 //            member.setId(1L);
 //            member.setUsername("A");
@@ -112,6 +114,13 @@ public class JpaMain {
             member.setUsername("C");
             member.setRoleType(RoleType.GUEST);
 
+
+            em.persist(member);
+             */
+
+            Member member = new Member();
+//            member.setId("ID_A");
+            member.setUsername("C");
 
             em.persist(member);
 
